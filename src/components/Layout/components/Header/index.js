@@ -10,9 +10,11 @@ import {
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
+import routesConfig from '~/config/routes';
 import Button from '~/components/Button';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import styles from './Header.module.scss';
@@ -34,13 +36,108 @@ function Header() {
                 data: [
                     {
                         type: 'language',
-                        code: 'en',
-                        title: 'English',
+                        code: 'es',
+                        title: 'Español',
                     },
                     {
                         type: 'language',
-                        code: 'vi',
-                        title: 'Tiếng Việt',
+                        code: 'fr',
+                        title: 'Français',
+                    },
+                    {
+                        type: 'language',
+                        code: 'de',
+                        title: 'Deutsch',
+                    },
+                    {
+                        type: 'language',
+                        code: 'ja',
+                        title: '日本語',
+                    },
+                    {
+                        type: 'language',
+                        code: 'ko',
+                        title: '한국어',
+                    },
+                    {
+                        type: 'language',
+                        code: 'ar',
+                        title: 'العربية',
+                    },
+                    {
+                        type: 'language',
+                        code: 'ru',
+                        title: 'Русский',
+                    },
+                    {
+                        type: 'language',
+                        code: 'zh',
+                        title: '中文',
+                    },
+                    {
+                        type: 'language',
+                        code: 'pt',
+                        title: 'Português',
+                    },
+                    {
+                        type: 'language',
+                        code: 'it',
+                        title: 'Italiano',
+                    },
+                    {
+                        type: 'language',
+                        code: 'nl',
+                        title: 'Nederlands',
+                    },
+                    {
+                        type: 'language',
+                        code: 'sv',
+                        title: 'Svenska',
+                    },
+                    {
+                        type: 'language',
+                        code: 'pl',
+                        title: 'Polski',
+                    },
+                    {
+                        type: 'language',
+                        code: 'tr',
+                        title: 'Türkçe',
+                    },
+                    {
+                        type: 'language',
+                        code: 'th',
+                        title: 'ไทย',
+                    },
+                    {
+                        type: 'language',
+                        code: 'hi',
+                        title: 'हिन्दी',
+                    },
+                    {
+                        type: 'language',
+                        code: 'id',
+                        title: 'Bahasa Indonesia',
+                    },
+                    {
+                        type: 'language',
+                        code: 'el',
+                        title: 'Ελληνικά',
+                    },
+                    {
+                        type: 'language',
+                        code: 'cs',
+                        title: 'Čeština',
+                    },
+                    {
+                        type: 'language',
+                        code: 'hu',
+                        title: 'Magyar',
+                    },
+                    {
+                        type: 'language',
+                        code: 'fi',
+                        title: 'Suomi',
                     },
                 ],
             },
@@ -92,9 +189,10 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
 
-                {/* Search */}
                 <Search />
 
                 <div className={cx('actions')}>
@@ -110,7 +208,7 @@ function Header() {
                                     <MessageIcon />
                                 </button>
                             </Tippy>
-                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon />
                                     <span className={cx('badge')}>12</span>
@@ -128,9 +226,8 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="1https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/0734aa53fbd2851d0bee26f47217f308.jpeg?x-expires=1696057200&x-signature=OhSM7YvEY4okupSlxlMvdL%2FFWPo%3D"
+                                src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-1/384122091_328148859626574_3255223230854776894_n.jpg?stp=dst-jpg_p320x320&_nc_cat=108&ccb=1-7&_nc_sid=fe8171&_nc_ohc=l8AM1pBQgKIAX9eTrP_&_nc_ht=scontent.fhan14-2.fna&oh=00_AfAzhkG9McgCGjtN88oLqruF3I3L0cGVHu5yT0P9KRzroA&oe=65208A0B"
                                 alt="Mai Nhật Ánh"
-                                fallback="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-1/383825328_1001058501008973_704094502529332380_n.jpg?stp=dst-jpg_p320x320&_nc_cat=101&ccb=1-7&_nc_sid=fe8171&_nc_ohc=op60QsHuhskAX8qBHfT&_nc_ht=scontent.fhan2-3.fna&oh=00_AfC2bMC5a271N5K0q0X4tH-VcN-El2_ifztgdT6fK6nDsQ&oe=651A3AB4"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
